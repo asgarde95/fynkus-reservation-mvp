@@ -5,7 +5,6 @@
       <sourceFolder url="file://$MODULE_DIR$/backend/src" isTestSource="false" packagePrefix="App\" />
       <sourceFolder url="file://$MODULE_DIR$/backend/tests" isTestSource="true" packagePrefix="App\Tests\" />
       <excludeFolder url="file://$MODULE_DIR$/backend/var" />
-      <excludeFolder url="file://$MODULE_DIR$/backend/vendor" />
       <excludeFolder url="file://$MODULE_DIR$/backend/vendor/composer" />
       <excludeFolder url="file://$MODULE_DIR$/backend/vendor/doctrine/cache" />
       <excludeFolder url="file://$MODULE_DIR$/backend/vendor/doctrine/collections" />
@@ -22,6 +21,7 @@
       <excludeFolder url="file://$MODULE_DIR$/backend/vendor/doctrine/persistence" />
       <excludeFolder url="file://$MODULE_DIR$/backend/vendor/doctrine/sql-formatter" />
       <excludeFolder url="file://$MODULE_DIR$/backend/vendor/myclabs/deep-copy" />
+      <excludeFolder url="file://$MODULE_DIR$/backend/vendor/nelmio/cors-bundle" />
       <excludeFolder url="file://$MODULE_DIR$/backend/vendor/nikic/php-parser" />
       <excludeFolder url="file://$MODULE_DIR$/backend/vendor/phar-io/manifest" />
       <excludeFolder url="file://$MODULE_DIR$/backend/vendor/phar-io/version" />

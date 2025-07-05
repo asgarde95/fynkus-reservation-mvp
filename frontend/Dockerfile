@@ -4,10 +4,12 @@ WORKDIR /app
 
 # Instala dependencias
 COPY package*.json ./
-RUN npm install
+# Instalamos dependencias primero para el build, pero no importa si el volumen las "tapa"
+RUN npm install --include=dev
 
 COPY . .
 
 EXPOSE 5173
 
-CMD ["npm", "run", "dev", "--", "--host"]
+# Usa nuestro entrypoint personalizado
+ENTRYPOINT [ "sh", "/app/entrypoint.sh" ]
