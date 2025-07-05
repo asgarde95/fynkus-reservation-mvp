@@ -17,6 +17,7 @@ services:
       dockerfile: Dockerfile
     environment:
       DATABASE_URL: "mysql://app:app@db:3306/app"
+      PHP_IDE_CONFIG: "serverName=backend"
     volumes:
       - ./backend:/app
     depends_on:

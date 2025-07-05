@@ -25,6 +25,13 @@ doctrine:
                 prefix: 'App\Domain\Entity'
                 alias: AppDomainEntity
 
+            Domain:
+                is_bundle: false
+                type: xml
+                dir: '%kernel.project_dir%/src/Infrastructure/Doctrine/Mapping'
+                prefix: 'App\Domain\Model'
+                alias: Domain
+
             App:
                 type: attribute
                 is_bundle: false
