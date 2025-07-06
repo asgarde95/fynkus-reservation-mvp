@@ -25,6 +25,12 @@ Se trata de un proyecto construido con Symfony (Arquitectura Hexagonal, TDD) y V
    docker compose exec backend bin/phpunit
    ```
 
+5. **[Opcional]** Limpieza al terminar la ejecución (*si conoces los riesgos*):
+   ```
+   docker compose down --rmi all -v
+   docker system prune -a --volumes
+   ```
+
 ## Decisiones de arquitectura:
 
 - **Enfoque arquitectónico**:
