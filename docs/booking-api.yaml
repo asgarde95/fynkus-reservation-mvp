@@ -1,0 +1,129 @@
+openapi: 3.0.0
+info:
+  title: Booking API
+  version: 1.0.0
+  description: API para consultar y gestionar reservas de espacios comunes.
+
+servers:
+  - url: http://localhost/api
+    description: Servidor local de desarrollo
+
+paths:
+  /spaces:
+    get:
+      summary: Obtener lista de espacios comunes
+      operationId: getSpaces
+      responses:
+        '200':
+          description: Lista de espacios
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      example: padel
+                    name:
+                      type: string
+                      example: Padel Court
+
+  /availability:
+    get:
+      summary: Consultar disponibilidad de un espacio en una fecha
+      operationId: getAvailability
+      parameters:
+        - name: space
+          in: query
+          required: true
+          schema:
+            type: string
+          description: ID del espacio (ej. "padel")
+        - name: date
+          in: query
+          required: true
+          schema:
+            type: string
+            format: date
+          description: Fecha para consultar (YYYY-MM-DD)
+      responses:
+        '200':
+          description: Disponibilidad por hora
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    time:
+                      type: string
+                      example: "09:00"
+                    available:
+                      type: boolean
+                      example: true
+        '400':
+          description: Error en la solicitud
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: Formato de fecha inválido
+
+  /bookings:
+    post:
+      summary: Crear una reserva
+      operationId: createBooking
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - space
+                - date
+                - time
+              properties:
+                space:
+                  type: string
+                  example: padel
+                date:
+                  type: string
+                  format: date
+                  example: 2025-07-05
+                time:
+                  type: string
+                  example: "09:00"
+      responses:
+        '201':
+          description: Reserva creada exitosamente
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: success
+                  bookingId:
+                    type: string
+                    example: abc123
+        '400':
+          description: Error al crear la reserva
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: error
+                  message:
+                    type: string
+                    example: Ya existe una reserva para ese horario
