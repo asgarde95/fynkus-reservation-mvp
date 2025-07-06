@@ -1,4 +1,4 @@
-# PRUEBA DE DESARROLLO MVP PARA FYNKUS
+# PRUEBA DE DESARROLLO PARA FYNKUS
 
 Se trata de un proyecto construido con Symfony (Arquitectura Hexagonal, TDD) y Vue 3 + TypeScript en un monorepo dockerizado.
 
@@ -64,9 +64,7 @@ Se trata de un proyecto construido con Symfony (Arquitectura Hexagonal, TDD) y V
 ## Notas personales:
 
 He tenido problemas desde el inicio; mi PC con Windows terminó fallando. Tuve que realizar una instalación nueva de Xubuntu.
-
 Perdí mucho tiempo con la infraestructura.  
-No suelo trabajar con Docker, ya que utilizo servidores virtuales gestionados por un equipo de sistemas que replican el entorno de producción.
 
 Al menos me siento satisfecho de haber podido entregar un proyecto funcional como MVP, cubriendo los requisitos de la prueba.  
 Gracias por la oportunidad y espero que podamos trabajar juntos en el futuro.
