@@ -81,21 +81,6 @@ class Booking
         return $this->isActive;
     }
 
-    public function deactivate(): void
-    {
-        $this->isActive = false;
-    }
-
-    public function activate(): void
-    {
-        $this->isActive = true;
-    }
-
-    public function overlapsWith(DateTimeInterface $start, DateTimeInterface $end): bool
-    {
-        return $this->startTime < $end && $this->endTime > $start;
-    }
-
     /**
      * @throws Exception
      */

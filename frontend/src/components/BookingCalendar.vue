@@ -35,7 +35,10 @@ const bookSlot = async (time: string) => {
       time
     })
 
-    window.location.reload();
+    // Actualizar la disponibilidad después de reservar
+    await bookingStore.fetchAvailability(props.space, props.date)
+    // Actualizar los timeSlots con la nueva disponibilidad
+    timeSlots.value = bookingStore.availability
 
   } catch (err) {
     console.error('Error al reservar:', err)
@@ -47,19 +50,25 @@ const bookSlot = async (time: string) => {
   <div class="calendar">
     <div v-if="isLoading">Cargando disponibilidad...</div>
     <div v-else-if="error" class="error">{{ error }}</div>
-    <div v-else class="slots-grid">
-      <button
-          v-for="slot in timeSlots"
-          :key="slot.time"
-          @click="bookSlot(slot.time)"
-          :disabled="!slot.available"
-          :class="{
-          'available': slot.available,
-          'booked': !slot.available
-        }"
-      >
-        {{ slot.time }} - {{ slot.available ? 'LIBRE' : 'RESERVADO' }}
-      </button>
+    <div v-else>
+      <div v-if="timeSlots.length === 0" class="no-slots-message">
+        Debes de ejecutar la migración de la base de datos.
+        Y recargar la página. (Perdón por las molestias)
+      </div>
+      <div v-else class="slots-grid">
+        <button
+            v-for="slot in timeSlots"
+            :key="slot.time"
+            @click="bookSlot(slot.time)"
+            :disabled="!slot.available"
+            :class="{
+            'available': slot.available,
+            'booked': !slot.available
+          }"
+        >
+          {{ slot.time }} - {{ slot.available ? 'LIBRE' : 'RESERVADO' }}
+        </button>
+      </div>
     </div>
   </div>
 </template>
@@ -97,5 +106,13 @@ button.booked {
   padding: 10px;
   background-color: #ffebee;
   border-radius: 4px;
+}
+
+.no-slots-message {
+  color: #757575;
+  padding: 10px;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+  text-align: center;
 }
 </style>

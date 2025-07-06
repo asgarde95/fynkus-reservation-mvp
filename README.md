@@ -23,6 +23,10 @@ Se trata de un proyecto construido con Symfony (Arquitectura Hexagonal, TDD) y V
 4. Ejecución de la suite de tests:
    ```
    docker compose exec backend bin/phpunit
+   
+   (Opcional) Para ejecutar los tests con cobertura de código:
+   
+    docker compose exec -e XDEBUG_MODE=coverage backend vendor/bin/phpunit --coverage-text
    ```
 
 5. **[Opcional]** Limpieza al terminar la ejecución (*si conoces los riesgos*):
@@ -34,7 +38,7 @@ Se trata de un proyecto construido con Symfony (Arquitectura Hexagonal, TDD) y V
 ## Decisiones de arquitectura:
 
 - **Enfoque arquitectónico**:
-    - He intentado cubrir todos los requisitos que en cuanto arquitectura que se pedían.
+    - He intentado cubrir todos los requisitos que en cuanto arquitectura que se pedían. Aunque para un MVP no es necesario, he seguido un enfoque de Arquitectura Hexagonal (Ports and Adapters) para facilitar la escalabilidad y el mantenimiento del código.
     - He utilizado MariaDB porque es con lo que trabajo habitualmente.
     - Usé Doctrine ORM para la gestión de la base de datos, ya que es una herramienta robusta y ampliamente utilizada en el ecosistema Symfony, aunque no suelo trabajar con ella habitualmente.
 
@@ -55,6 +59,7 @@ Se trata de un proyecto construido con Symfony (Arquitectura Hexagonal, TDD) y V
     - Identificación básica de usuarios (sesiones), con rol de administrador para desbloquear fechas.
     - Permitir seleccionar “media jornada” para ciertas fechas (tramos de mañana o tarde).
     - Si varios usuarios acceden al mismo tiempo, bloquear durante el proceso de reserva la fecha que se está contratando.
+    - Internalizacion de la aplicación (i18n) para soportar múltiples idiomas.
 
 ## Notas personales:
 
