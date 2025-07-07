@@ -65,5 +65,3 @@ Se trata de un proyecto construido con Symfony (Arquitectura Hexagonal, TDD) y V
 
 La especificación del API de Booking está disponible en [docs/booking-api.yaml](docs/booking-api.yaml).
 Se puede copiar el contenido del archivo y pegarlo en [https://editor.swagger.io/](https://editor.swagger.io/) para visualizarlo.
-
-Al menos me siento satisfecho de haber podido entregar un proyecto funcional como MVP, cubriendo los requisitos de la prueba.  
