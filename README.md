@@ -23,9 +23,9 @@ Se trata de un proyecto construido con Symfony (Arquitectura Hexagonal, TDD) y V
 4. Ejecución de la suite de tests:
    ```
    docker compose exec backend bin/phpunit
-   
-   (Opcional) Para ejecutar los tests con cobertura de código:
-   
+   ```
+   **[Opcional]** Para ejecutar los tests con cobertura de código:
+   ```
     docker compose exec -e XDEBUG_MODE=coverage backend vendor/bin/phpunit --coverage-text
    ```
 
@@ -61,10 +61,9 @@ Se trata de un proyecto construido con Symfony (Arquitectura Hexagonal, TDD) y V
     - Si varios usuarios acceden al mismo tiempo, bloquear durante el proceso de reserva la fecha que se está contratando.
     - Internalizacion de la aplicación (i18n) para soportar múltiples idiomas.
 
-## Notas personales:
+## Otros comentarios:
 
-He tenido problemas desde el inicio; mi PC con Windows terminó fallando. Tuve que realizar una instalación nueva de Xubuntu.
-Perdí mucho tiempo con la infraestructura.  
+La especificación del API de Booking está disponible en [docs/booking-api.yaml](docs/booking-api.yaml).
+Se puede copiar el contenido del archivo y pegarlo en [https://editor.swagger.io/](https://editor.swagger.io/) para visualizarlo.
 
 Al menos me siento satisfecho de haber podido entregar un proyecto funcional como MVP, cubriendo los requisitos de la prueba.  
-Gracias por la oportunidad y espero que podamos trabajar juntos en el futuro.

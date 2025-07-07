@@ -18,8 +18,8 @@
         },
         "files": [
             "config/packages/doctrine.yaml",
-            "src/Entity/.gitignore",
-            "src/Repository/.gitignore"
+            "src/Domain/Entity/.gitignore",
+            "src/Infrastructure/Repository/.gitignore"
         ]
     },
     "doctrine/doctrine-migrations-bundle": {
